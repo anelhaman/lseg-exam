@@ -41,20 +41,7 @@ rsync -a /path/to/your/file/lseg-exam remote_user@remote_host_or_ip:/path/on/tar
 ```
 7. got some result
 ```
-Metadata: &{ 
-    InstanceID:i-xxxxxxxxxxxxxxxxx
-    InstanceType:t3a.medium 
-    PrivateIP:xx.xx.xx.xx
-    AvailabilityZone:ap-southeast-1a 
-    Region:ap-southeast-1  
-    ImageID:ami-xxxxxxxxxxxxxxxxx 
-    AccountID:xxxxxxxxxxxx 
-    Hostname: 
-    PublicHostname: 
-    MacAddress: 
-    IAMRoleName: 
-    UserData:
-}
+Metadata: &{AccountID:xxxxxxxxxxxxxx Architecture:x86_64 AvailabilityZone:ap-southeast-1a BillingProducts:[] DevpayProductCodes:[] MarketplaceProductCodes:[] ImageID:ami-xxxxxxxxxxxxxxxxx InstanceID:i-xxxxxxxxxxxxxxxxx InstanceType:t3a.medium KernelID:null PendingTime:2025-03-26T00:50:09Z PrivateIP:xx.xx.xx.xx RamdiskID:null Region:ap-southeast-1 Version:2017-09-30}
 ```
 8. or quick check in instnce
 ```

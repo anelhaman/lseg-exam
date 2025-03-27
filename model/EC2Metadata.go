@@ -1,16 +1,19 @@
 package model
 
 type EC2Metadata struct {
-	InstanceID       string
-	InstanceType     string
-	PrivateIP        string
-	AvailabilityZone string
-	Region           string
-	ImageID          string
-	AccountID        string
-	Hostname         string
-	PublicHostname   string
-	MacAddress       string
-	IAMRoleName      string
-	UserData         string
+	AccountID               string
+	Architecture            string
+	AvailabilityZone        string
+	BillingProducts         []string
+	DevpayProductCodes      []string
+	MarketplaceProductCodes []string
+	ImageID                 string
+	InstanceID              string
+	InstanceType            string
+	KernelID                string
+	PendingTime             string
+	PrivateIP               string
+	RamdiskID               string
+	Region                  string
+	Version                 string
 }
