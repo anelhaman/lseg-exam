@@ -2,14 +2,9 @@
 
 ## How to work with this project
 
-1. Copy .env.example to .env
-```
-cp .env.example .env
-```
-2. Update values in .env prioritize AWS_ACCESS_KEY_ID + AWS_SECRET_ACCESS_KEY over AWS_PROFILE
-3. Install golang in your local computer. [Installation guide](https://go.dev/doc/install)
-4. run go mod tidy to ensuring your project only uses necessary packages and dependencies in go.mod
-5. Build executable file
+1. Install golang in your local computer. [Installation guide](https://go.dev/doc/install)
+2. run go mod tidy to ensuring your project only uses necessary packages and dependencies in go.mod
+3. Build executable file
 
 for mac m1
 ```
@@ -26,13 +21,44 @@ for windows (64-bit)
 GOOS=windows GOARCH=amd64 go build -o lseg-exam
 ```
 
-6. grant permission (if needed)
+for linux
+```
+GOOS=linux GOARCH=amd64 go build -o lseg-exam
+```
+
+4. grant permission (if needed)
 ```
 chmod +x ./lseg-exam
 ```
-7. Run file
+
+5. upload file to server use rsync (ensure your ~/.ssh/config is set)
+```
+rsync -a /path/to/your/file/lseg-exam remote_user@remote_host_or_ip:/path/on/target/dir/you/want/
+```
+6. Run file
 ```
 ./lseg-exam
+```
+7. got some result
+```
+Metadata: &{ 
+    InstanceID:i-xxxxxxxxxxxxxxxxx
+    InstanceType:t3a.medium 
+    PrivateIP:xx.xx.xx.xx
+    AvailabilityZone:ap-southeast-1a 
+    Region:ap-southeast-1  
+    ImageID:ami-xxxxxxxxxxxxxxxxx 
+    AccountID:xxxxxxxxxxxx 
+    Hostname: 
+    PublicHostname: 
+    MacAddress: 
+    IAMRoleName: 
+    UserData:
+}
+```
+8. or quick check in instnce
+```
+curl http://169.254.169.254/latest/dynamic/instance-identity/document
 ```
 
 ## No license

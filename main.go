@@ -1,26 +1,22 @@
 package main
 
 import (
+	"fmt"
 	"log"
-	"lseg-exam/config"
 	"lseg-exam/service"
 )
 
 func main() {
 
-	config.InitEnv()
-
-	svc, err := service.NewEC2()
+	fetcher, err := service.NewEC2MetaFetcher()
 	if err != nil {
 		log.Fatalf("init error: %v", err)
 	}
 
-	instances, err := svc.DescribeInstances()
+	meta, err := fetcher.GetMetadata()
 	if err != nil {
-		log.Fatalf("describe error: %v", err)
+		log.Fatalf("fetch error: %v", err)
 	}
 
-	for _, inst := range instances {
-		log.Printf("%+v", inst)
-	}
+	fmt.Printf("Metadata: %+v\n", meta)
 }
